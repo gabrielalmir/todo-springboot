@@ -28,6 +28,7 @@ public class TodoController {
         var todos = todoService.create(todo);
         return ResponseEntity.status(HttpStatus.CREATED).body(todos);
     }
+
     @GetMapping
     public ResponseEntity<List<Todo>> list() {
         var todos = todoService.list();
@@ -46,6 +47,7 @@ public class TodoController {
         var todos = todoService.update(id, todo);
         return ResponseEntity.ok(todos);
     }
+    
     @DeleteMapping("{id}")
     @Transactional
     public ResponseEntity<List<Todo>> delete(@PathVariable("id") Long id) {
